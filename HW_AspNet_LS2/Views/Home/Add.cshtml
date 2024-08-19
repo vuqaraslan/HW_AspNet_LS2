@@ -1,0 +1,51 @@
+﻿@model AddNewProductViewModel
+
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+
+<section class="container-fluid bg-secondary w-100 h-100 py-5">
+    <form asp-action="Add" asp-controller="Home">
+        <section class="container bg-light w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+            <section>
+                <label asp-for="NewProduct.ID"></label>
+                <input asp-for="NewProduct.ID" />
+            </section>
+            <section>
+                <label asp-for="NewProduct.ImagePath"></label>
+                <input asp-for="NewProduct.ImagePath" /> <br />
+                <span style="color:red" asp-validation-for="NewProduct.ImagePath"></span>
+            </section>
+            <section>
+                <label asp-for="NewProduct.Name"></label>
+                <input asp-for="NewProduct.Name" /><br />
+                <span style="color:red" asp-validation-for="NewProduct.Name"></span>
+            </section>
+            <section>
+                <label asp-for="NewProduct.Price"></label>
+                <input asp-for="NewProduct.Price" placeholder="TRUE(0,1) - FALSE(0.1)" /><br />
+                <span style="color:red" asp-validation-for="NewProduct.Price"></span>
+            </section>
+            <section>
+                <label asp-for="NewProduct.Discount"></label>
+                <input asp-for="NewProduct.Discount" placeholder="TRUE(0,1) - FALSE(0.1)" /><br />
+                <span style="color:red" asp-validation-for="NewProduct.Discount"></span>
+            </section>
+            <section>
+                <label asp-for="NewProduct.Description"></label>
+                <input asp-for="NewProduct.Description" /> <br />
+                <span style="color:red" asp-validation-for="NewProduct.Description"></span>
+            </section>
+
+            <section>
+                <button type="submit">Submit</button>
+            </section>
+        </section>
+    </form>
+
+    <div class="container text-center bg-danger py-3 rounded rounded-pill mt-2 border border-light w-25">
+        <a href="/home/index" class="text-light h4 font-weight-bold">Back Home page</a>
+    </div>
+</section>

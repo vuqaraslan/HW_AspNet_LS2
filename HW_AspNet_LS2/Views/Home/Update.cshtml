@@ -1,0 +1,58 @@
+﻿@model UpdateProductViewModel
+
+@{
+    Layout = null;
+    var imgPath = Model.ProductForUpdate.ImagePath;
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+
+
+<section class="container-fluid bg-secondary w-100 h-100 py-5">
+    <form asp-action="Update" asp-controller="Home">
+        <section class="container bg-light w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+            <section class="w-50 h-50 rounded-pill p-3">
+                @* <img src="@Model.ProductForUpdate.ImagePath" /> *@
+                <img src="@imgPath" class="rounded-pill w-100 h-100" />
+            </section>
+            <section>
+                <label asp-for="ProductForUpdate.ImagePath"></label>
+                <input asp-for="ProductForUpdate.ImagePath" /><br />
+                <span style="color:red" asp-validation-for="ProductForUpdate.ImagePath"></span>
+            </section>
+            <section>
+                <label asp-for="ProductForUpdate.ID"></label>
+                @* <input asp-for="ProductForUpdate.ID" disabled /> *@
+                <input asp-for="ProductForUpdate.ID"/>
+            </section>
+            <section>
+                <label asp-for="ProductForUpdate.Name"></label>
+                <input asp-for="ProductForUpdate.Name" /><br />
+                <span style="color:red" asp-validation-for="ProductForUpdate.Name"></span>
+            </section>
+            <section>
+                <label asp-for="ProductForUpdate.Price"></label>
+                <input asp-for="ProductForUpdate.Price" /><br />
+                <span style="color:red" asp-validation-for="ProductForUpdate.Price"></span>
+            </section>
+            <section>
+                <label asp-for="ProductForUpdate.Discount"></label>
+                <input asp-for="ProductForUpdate.Discount" /><br />
+                <span style="color:red" asp-validation-for="ProductForUpdate.Discount"></span>
+            </section>
+            <section>
+                <label asp-for="ProductForUpdate.Description"></label>
+                <input asp-for="ProductForUpdate.Description" /> <br />
+                <span style="color:red" asp-validation-for="ProductForUpdate.Description"></span>
+            </section>
+
+            <section>
+                <button type="submit">Update</button>
+            </section>
+        </section>
+    </form>
+
+    <div class="container text-center bg-danger py-3 rounded rounded-pill mt-2 border border-light w-25">
+        <a href="/home/index" class="text-light h4 font-weight-bold">Back Home page</a>
+    </div>
+</section>

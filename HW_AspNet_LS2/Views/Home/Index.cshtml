@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+@* <div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+ *@
+ 
+ @model AllProductsViewModel
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+
+
+ <section class="container-fluid  py-5">
+
+     @* <input type="color"/> *@
+
+    <h1 class="bg-danger text-light text-center rounded-pill border border-4 py-2 border-warning">ALL PRODUCTS</h1>
+
+    <div class="container  py-1 ">
+    
+        @* <div class="row bg-light m-auto px-5 py-5"> *@
+        <div class="row bg-light">
+            @foreach (var product in Model.Products)
+            {
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 py-2 px-2 ">
+                    <div class="bg-info h-100 py-5 px-2 border border-light border-1 rounded-pill text-center product">
+                        <div class="w-75 rounded-circle h-50 bg-dark m-auto">
+                            <img src="@product.ImagePath" class="w-100 h-100 rounded-circle" />
+                        </div>
+                        @* <h2 class="fs-6 fw-bold text-light">ID : @product.ID</h2> *@
+                        <h3 class="fs-1 text-light">Name : @product.Name</h3>
+                        <h4 class="fs-5 text-light">Price : @product.Price <span class="text-success">$</span></h4>
+                        <h5 class="fs-5 text-light">Discount : @product.Discount <span class="text-warning">%</span></h5>
+                        <h6 class="h6 font-weight-bold text-light border-dark border-bottom w-50 m-auto">Description</h6>
+                        <p class="text-light w-50 m-auto">@product.Description</p>
+                        <div class="w-75 m-auto py-2">
+                            <a class="update text-white rounded-pill p-2" style="font-size:12px;margin-top:60px;"
+                                    asp-controller="Home" asp-action="Update" asp-route-id="@product.ID">UPDATE</a>
+                            <a class="delete text-white rounded-pill border p-2 " style="font-size:12px;margin-top:60px;"
+                                    asp-controller="Home" asp-action="Delete" asp-route-id="@product.ID">DELETE</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="m-auto text-center bg-success py-3 rounded rounded-pill mt-2 border border-light w-25">
+            <a href="/home/add" class="text-light">Add New Product</a>
+        </div>
+    </div>
+</section>
